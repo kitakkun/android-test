@@ -6,15 +6,16 @@ class Engine {
     }
 }
 
-// this is dependency injection
-class Car(private val engine: Engine) {
+// this is dependency injection(another approach)
+class Car {
+    lateinit var engine: Engine
     fun start() {
         engine.start()
     }
 }
 
 fun main() {
-    val engine = Engine()
-    val car = Car(engine)
+    val car = Car()
+    car.engine = Engine()
     car.start()
 }
